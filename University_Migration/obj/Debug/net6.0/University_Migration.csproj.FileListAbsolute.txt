@@ -1,0 +1,17 @@
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\University_Migration.exe
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\University_Migration.deps.json
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\University_Migration.runtimeconfig.json
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\University_Migration.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\University_Migration.pdb
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.csproj.AssemblyReference.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.AssemblyInfoInputs.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.AssemblyInfo.cs
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.csproj.CoreCompileInputs.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\refint\University_Migration.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.pdb
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.genruntimeconfig.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\ref\University_Migration.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\bin\Debug\net6.0\CsvHelper.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\University_Migration\obj\Debug\net6.0\University_Migration.csproj.CopyComplete

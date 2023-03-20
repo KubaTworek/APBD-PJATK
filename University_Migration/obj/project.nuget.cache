@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FD0QHDXaX7peXoPrf4BUllMFwFyvdKt68w+rVxq3XUQmU5+Vb+KBDROUiRvuiXY8i9hszxAiG85ZuxYj9xmTOw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kubat\\source\\repos\\cwiczenia2_jd-KubaTworek\\University_Migration\\University_Migration.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kubat\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
