@@ -24,5 +24,10 @@
             FatherName = fatherName;
             MotherName = motherName;
         }
+
+        public override string? ToString()
+        {
+            return FirstName + "," + LastName + "," + Index + "," + Birthdate + "," + StudyType + "," + StudyMode + "," + Email + "," + FatherName + "," + MotherName;
+        }
     }
 }

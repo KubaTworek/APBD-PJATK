@@ -42,9 +42,9 @@ namespace StudentsAPI.Controllers
 		[HttpPost]
 		public ActionResult CreateStudent([FromBody] Student request)
 		{
-			Student student = _studentService.Create(request);
+			_studentService.Create(request);
 
-			return Created($"/api/students/{student.index}", student);
+			return Created($"/api/students/{request.Index}", null);
 		}
 
 		[HttpDelete("{index}")]

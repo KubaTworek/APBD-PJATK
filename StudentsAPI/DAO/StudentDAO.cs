@@ -5,6 +5,8 @@ namespace StudentsAPI.DAO
     public interface IStudentDAO
     {
         List<Student> GetAll();
+        void Create(Student student);
+        void saveAll(List<Student> students);
     }
 
     public class StudentDAO : IStudentDAO
@@ -37,6 +39,26 @@ namespace StudentsAPI.DAO
                 students.Add(student);
             }
             return students;
+        }
+
+        public void Create(Student student)
+        {
+            string studentString = student.ToString();
+            using (var writer = new StreamWriter(Path.Combine(Environment.CurrentDirectory, "Data", "students.csv"), true))
+            {
+                writer.WriteLine(studentString);
+            }
+        }
+
+        public void saveAll(List<Student> students)
+        {
+            using (var writer = new StreamWriter(Path.Combine(Environment.CurrentDirectory, "Data", "students.csv")))
+            {
+                foreach (var student in students)
+                {
+                    writer.WriteLine(student.ToString());
+                }
+            }
         }
     }
 }
