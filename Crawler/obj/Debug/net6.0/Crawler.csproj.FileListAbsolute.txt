@@ -1,0 +1,15 @@
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\bin\Debug\net6.0\Crawler.exe
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\bin\Debug\net6.0\Crawler.deps.json
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\bin\Debug\net6.0\Crawler.runtimeconfig.json
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\bin\Debug\net6.0\Crawler.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\bin\Debug\net6.0\Crawler.pdb
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.csproj.AssemblyReference.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.AssemblyInfoInputs.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.AssemblyInfo.cs
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.csproj.CoreCompileInputs.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\refint\Crawler.dll
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.pdb
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\Crawler.genruntimeconfig.cache
+C:\Users\kubat\source\repos\cwiczenia2_jd-KubaTworek\Crawler\obj\Debug\net6.0\ref\Crawler.dll
