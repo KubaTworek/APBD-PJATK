@@ -27,32 +27,58 @@ namespace StudentsAPI.Controllers
 		public ActionResult<Student> GetStudentByIndex([FromRoute] string index)
 		{
 			Student student = _studentService.GetByIndex(index);
-
-			return Ok(student);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return Ok(student);
 		}
 
-		[HttpPut("{index}")]
-		public ActionResult UpdateStudentByIndex([FromBody] Student request, [FromRoute] string index)
-		{
-			_studentService.UpdateByIndex(request, index);
+        [HttpPut("{index}")]
+        public ActionResult UpdateStudentByIndex([FromBody] Student request, [FromRoute] string index)
+        {
+            bool isUpdated = _studentService.UpdateByIndex(request, index);
+            if (isUpdated)
+            {
+                return Ok("Updated student with index: " + index);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
-			return Ok("Update Student With index: " + index);
-		}
+        [HttpPost]
+        public ActionResult CreateStudent([FromBody] Student request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Index))
+            {
+                return BadRequest("Index is required for creating a student.");
+            }
 
-		[HttpPost]
-		public ActionResult CreateStudent([FromBody] Student request)
-		{
-			_studentService.Create(request);
+            bool isCreated = _studentService.Create(request);
+            if (isCreated)
+            {
+                return CreatedAtAction(nameof(GetStudentByIndex), new { index = request.Index }, request);
+            }
+            else
+            {
+                return BadRequest($"Student with index {request.Index} already exists.");
+            }
+        }
 
-			return Created($"/api/students/{request.Index}", null);
-		}
-
-		[HttpDelete("{index}")]
-		public ActionResult DeleteStudentByIndex([FromRoute] string index)
-		{
-            _studentService.Delete(index);
-
-            return NoContent();
-		}
-	}
+        [HttpDelete("{index}")]
+        public ActionResult DeleteStudentByIndex([FromRoute] string index)
+        {
+            bool isDeleted = _studentService.Delete(index);
+            if (isDeleted)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+    }
 }
