@@ -12,11 +12,11 @@ namespace Kolokwium.Service
             _prescriptionRepository = prescriptionRepository;
         }
 
-        public async Task<int> AddMedicaments(MedicamentsRequest request, int prescriptionId)
+        public async Task<int> AddMedicaments(List<MedicamentRequest> medicamentsToAdd, int prescriptionId)
         {
             var medicaments = new List<MedicamentRequest>();
 
-            foreach (MedicamentRequest medicament in request.Medicaments)
+            foreach (MedicamentRequest medicament in medicamentsToAdd)
             {
                 Medicament medicamentTemp = await _prescriptionRepository.FindMedicamentById(medicament.IdMedicament) ?? throw new Exception();
                 PrescriptionMedicament medicamentInPrescription = await _prescriptionRepository.FindMedicamentInPrescription(medicament.IdMedicament, prescriptionId);

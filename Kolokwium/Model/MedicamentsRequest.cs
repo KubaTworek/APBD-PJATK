@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Kolokwium.Model
+﻿namespace Kolokwium.Model
 {
     public class MedicamentsRequest
     {

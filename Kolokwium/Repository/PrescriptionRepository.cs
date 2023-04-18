@@ -1,6 +1,5 @@
 ﻿using Kolokwium.Model;
 using System.Data.SqlClient;
-using System.Transactions;
 
 namespace Kolokwium.Repository
 {
