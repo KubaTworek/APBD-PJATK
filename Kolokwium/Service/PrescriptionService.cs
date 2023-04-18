@@ -12,16 +12,23 @@ namespace Kolokwium.Service
             _prescriptionRepository = prescriptionRepository;
         }
 
-        public async Task<int> AddMedicaments(MedicamentsRequest request)
+        public async Task<int> AddMedicaments(MedicamentsRequest request, int prescriptionId)
         {
-            //for each
-            //jesi lek nie istnieje wyrzucic exception
-            //jesli lek jest dodany do recepty pomin
-            //dodaj do listy
+            var medicaments = new List<MedicamentRequest>();
 
+            foreach (MedicamentRequest medicament in request.Medicaments)
+            {
+                Medicament medicamentTemp = await _prescriptionRepository.FindMedicamentById(medicament.IdMedicament) ?? throw new Exception();
+                PrescriptionMedicament medicamentInPrescription = await _prescriptionRepository.FindMedicamentInPrescription(medicament.IdMedicament, prescriptionId);
+                if (medicamentInPrescription != null)
+                {
+                    throw new Exception();
+                }
+                medicaments.Add(medicament);
+            }
 
-            await _prescriptionRepository.AddMedicaments(request);
-            return 1;
+            await _prescriptionRepository.AddMedicaments(medicaments, prescriptionId);
+            return medicaments.Count;
         }
 
         public async Task<IList<Prescription>> GetAllByLastName(string lastName)

@@ -1,6 +1,7 @@
 ﻿using Kolokwium.Model;
 using Kolokwium.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace Kolokwium.Controllers
 {
@@ -23,10 +24,10 @@ namespace Kolokwium.Controllers
             return Ok(prescriptions);
         }
 
-        [HttpPost("/medicaments")]
-        public async Task<ActionResult> CreateMedicament([FromBody] MedicamentsRequest request)
+        [HttpPost("{prescriptionId}")]
+        public async Task<ActionResult> CreateMedicament([FromBody] MedicamentsRequest request, [FromRoute] int prescriptionId)
         {
-            int count = await _prescriptionService.AddMedicaments(request);
+            int count = await _prescriptionService.AddMedicaments(request, prescriptionId);
             return Ok(count + "medicaments were added");
         }
     }

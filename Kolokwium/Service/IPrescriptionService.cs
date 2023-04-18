@@ -4,7 +4,7 @@ namespace Kolokwium.Service
 {
     public interface IPrescriptionService
     {
-        Task<int> AddMedicaments(MedicamentsRequest request);
+        Task<int> AddMedicaments(MedicamentsRequest request, int prescriptionId);
         Task<IList<Prescription>> GetAllByLastName(string lastName);
     }
 }
