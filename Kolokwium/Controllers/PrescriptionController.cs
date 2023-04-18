@@ -1,11 +1,10 @@
 ﻿using Kolokwium.Model;
 using Kolokwium.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kolokwium.Controllers
 {
-    [Route("api")]
+    [Route("api/prescriptions")]
     [ApiController]
     public class PrescriptionController : ControllerBase
     {
@@ -16,8 +15,8 @@ namespace Kolokwium.Controllers
             _prescriptionService = prescriptionService;
         }
 
-        [HttpGet("/prescriptions")]
-        public async Task<IActionResult> GetPrescrptions(string lastName = "")
+        [HttpGet]
+        public async Task<IActionResult> GetPrescriptions(string lastName = "")
         {
             var prescriptions = await _prescriptionService.GetAllByLastName(lastName);
 
