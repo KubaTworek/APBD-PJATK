@@ -1,0 +1,15 @@
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\bin\Debug\net7.0\LinqTasks.exe
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\bin\Debug\net7.0\LinqTasks.deps.json
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\bin\Debug\net7.0\LinqTasks.runtimeconfig.json
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\bin\Debug\net7.0\LinqTasks.dll
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\bin\Debug\net7.0\LinqTasks.pdb
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.csproj.AssemblyReference.cache
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.AssemblyInfoInputs.cache
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.AssemblyInfo.cs
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.csproj.CoreCompileInputs.cache
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.dll
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\refint\LinqTasks.dll
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.pdb
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\LinqTasks.genruntimeconfig.cache
+C:\Users\kubat\Source\Repos\cwiczenia7_jd-KubaTworek\LinqTutorials\LinqTasks\obj\Debug\net7.0\ref\LinqTasks.dll
