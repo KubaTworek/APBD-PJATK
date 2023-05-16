@@ -5,7 +5,7 @@ namespace DatabaseFirst.Service
 {
     public interface ITripsService
     {
-        Task<TripResponse> FindAllTrips();
+        Task<IList<TripResponse>> FindAllTrips();
         Task<ClientResponse> AddClientToTrip(ClientRequest clientRequest, int idTrip);
     }
 }

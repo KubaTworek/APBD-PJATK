@@ -19,15 +19,15 @@ namespace DatabaseFirst.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllTrips()
         {
-
-            return Ok();
+            var trips = await _tripsService.FindAllTrips();
+            return Ok(trips);
         }
 
-        [HttpPost("{idTrip}/clients")]
+        [HttpPost("/{idTrip}/clients")]
         public async Task<IActionResult> AddClientToTrip([FromBody] ClientRequest clientRequest, [FromRoute] int idTrip)
         {
-
-            return Ok();
+            var client = await _tripsService.AddClientToTrip(clientRequest, idTrip);
+            return Ok(client);
         }
     }
 }

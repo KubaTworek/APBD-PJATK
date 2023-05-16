@@ -15,10 +15,10 @@ namespace DatabaseFirst.Controllers
             _clientsService = clientsService;
         }
 
-        [HttpDelete("{idClient")]
+        [HttpDelete("/{idClient}")]
         public async Task<IActionResult> DeleteClient([FromRoute] int idClient)
         {
-
+            await _clientsService.DeleteClient(idClient);
             return NoContent();
         }
     }

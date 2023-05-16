@@ -2,6 +2,6 @@
 {
     public interface IClientsService
     {
-        Task<bool> DeleteClient(string clientId);
+        Task<bool> DeleteClient(int clientId);
     }
 }

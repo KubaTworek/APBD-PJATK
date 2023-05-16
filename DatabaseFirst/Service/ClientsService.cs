@@ -1,4 +1,5 @@
 ﻿using DatabaseFirst.DAL;
+using DatabaseFirst.Middleware;
 
 namespace DatabaseFirst.Service
 {
@@ -11,9 +12,21 @@ namespace DatabaseFirst.Service
             _context = context;
         }
 
-        public Task<bool> DeleteClient(string clientId)
+        public async Task<bool> DeleteClient(int clientId)
         {
-            throw new NotImplementedException();
+            var client = await _context.Clients.FindAsync(clientId);
+            if (client == null)
+            {
+                throw new NotFoundException($"Client with ID {clientId} does not exist.");
+            }
+
+            var clientTrips = _context.ClientTrips.Where(ct => ct.IdClient == clientId);
+            _context.ClientTrips.RemoveRange(clientTrips);
+            _context.Clients.Remove(client);
+
+            await _context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
