@@ -27,7 +27,7 @@ namespace DatabaseFirst.Controllers
         public async Task<IActionResult> AddClientToTrip([FromBody] ClientRequest clientRequest, [FromRoute] int idTrip)
         {
 
-            return Created();
+            return Ok();
         }
     }
 }
