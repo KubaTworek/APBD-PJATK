@@ -1,4 +1,6 @@
+using CodeFirst.Middleware;
 using CodeFirst.Model;
+using CodeFirst.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MainDbContext>();
 builder.Services.AddScoped<CustomSeeder>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
