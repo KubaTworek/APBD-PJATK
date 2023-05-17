@@ -70,27 +70,6 @@ namespace DatabaseFirst.Service
             return tripResponses;
         }
 
-        private IList<TripResponse> MapTripResponses(List<(Trip Trip, Client? Client, IEnumerable<string> CountryNames)> trips)
-        {
-            return trips.GroupBy(r => r.Trip)
-                .OrderByDescending(group => group.Key.DateFrom)
-                .Select(group => new TripResponse
-                (
-                    group.Key.Name,
-                    group.Key.Description,
-                    group.Key.DateFrom.ToString(),
-                    group.Key.DateTo.ToString(),
-                    group.Key.MaxPeople.ToString(),
-                    group.SelectMany(r => r.CountryNames).Distinct(),
-                    group.Where(r => r.Client != null)
-                        .Select(r => new ClientResponse
-                        (
-                            r.Client.FirstName,
-                            r.Client.LastName
-                        ))
-                )).ToList();
-        }
-
         private async Task<Trip> GetExistingTrip(int idTrip)
         {
             var trip = await _context.Trips.FindAsync(idTrip);
@@ -134,14 +113,14 @@ namespace DatabaseFirst.Service
             return clientCreated.Entity;
         }
 
-        private async Task AssignClientToTrip(int tripId, int clientId, string paymentDate)
+        private async Task AssignClientToTrip(int tripId, int clientId, string? paymentDate)
         {
             var clientTrip = new ClientTrip
             {
                 IdTrip = tripId,
                 IdClient = clientId,
                 RegisteredAt = DateTime.Now,
-                PaymentDate = DateTime.Parse(paymentDate)
+                PaymentDate = paymentDate != null ? DateTime.Parse(paymentDate) : null
             };
 
             _context.ClientTrips.Add(clientTrip);
