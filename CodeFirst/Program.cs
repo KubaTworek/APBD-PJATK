@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MainDbContext>();
 builder.Services.AddScoped<CustomSeeder>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 builder.Services.AddControllers();
