@@ -1,5 +1,6 @@
 ﻿using DatabaseFirst.DAL;
 using DatabaseFirst.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatabaseFirst.Service
 {
@@ -14,16 +15,16 @@ namespace DatabaseFirst.Service
 
         public async Task<bool> DeleteClient(int clientId)
         {
-            var client = await _context.Clients.FindAsync(clientId);
-            if (client == null)
+            var client = await _context.Clients.FindAsync(clientId)
+                ?? throw new NotFoundException($"Client with ID {clientId} does not exist.");
+
+            var isClientTrips = await _context.ClientTrips.AnyAsync(ct => ct.IdClient == clientId);
+            if (isClientTrips)
             {
-                throw new NotFoundException($"Client with ID {clientId} does not exist.");
+                throw new BadRequestException($"Client with ID {clientId} has active trips.");
             }
 
-            var clientTrips = _context.ClientTrips.Where(ct => ct.IdClient == clientId);
-            _context.ClientTrips.RemoveRange(clientTrips);
             _context.Clients.Remove(client);
-
             await _context.SaveChangesAsync();
 
             return true;
