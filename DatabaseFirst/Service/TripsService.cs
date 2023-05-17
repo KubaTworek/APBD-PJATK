@@ -21,7 +21,7 @@ namespace DatabaseFirst.Service
 
             if (existingClient != null)
             {
-                await CheckClientAssignedToTrip(existingClient.IdClient);
+                await CheckClientAssignedToTrip(existingClient.IdClient, idTrip);
             }
             else
             {
@@ -107,9 +107,9 @@ namespace DatabaseFirst.Service
             return await _context.Clients.FirstOrDefaultAsync(c => c.Pesel == pesel);
         }
 
-        private async Task CheckClientAssignedToTrip(int clientId)
+        private async Task CheckClientAssignedToTrip(int clientId, int tripId)
         {
-            var isClientAssigned = await _context.ClientTrips.AnyAsync(ct => ct.IdClient == clientId);
+            var isClientAssigned = await _context.ClientTrips.AnyAsync(ct => ct.IdClient == clientId && ct.IdTrip == tripId);
             if (isClientAssigned)
             {
                 throw new BadRequestException($"Client with ID {clientId} has already been assigned to that trip.");
@@ -120,6 +120,7 @@ namespace DatabaseFirst.Service
         {
             var client = new Client
             {
+                IdClient = await _context.Clients.MaxAsync(c => c.IdClient) + 1,
                 FirstName = clientRequest.FirstName,
                 LastName = clientRequest.LastName,
                 Email = clientRequest.Email,
