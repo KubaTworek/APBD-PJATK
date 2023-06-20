@@ -1,12 +1,12 @@
-using CodeFirst.DTO;
-using CodeFirst.Model;
 using CodeFirst.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeFirst.Controllers
 {
     [ApiController]
     [Route("api/prescriptions")]
+    [Authorize]
     public class PrescriptionController : ControllerBase
     {
         private readonly IPrescriptionService _prescriptonService;

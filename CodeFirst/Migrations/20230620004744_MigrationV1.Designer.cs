@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20230517214835_UpdateV2")]
-    partial class UpdateV2
+    [Migration("20230620004744_MigrationV1")]
+    partial class MigrationV1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,9 +118,6 @@ namespace CodeFirst.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DoctorIdDoctor")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
@@ -130,14 +127,11 @@ namespace CodeFirst.Migrations
                     b.Property<int>("IdPatient")
                         .HasColumnType("int");
 
-                    b.Property<int>("PatientIdPatient")
-                        .HasColumnType("int");
-
                     b.HasKey("IdPrescription");
 
-                    b.HasIndex("DoctorIdDoctor");
+                    b.HasIndex("IdDoctor");
 
-                    b.HasIndex("PatientIdPatient");
+                    b.HasIndex("IdPatient");
 
                     b.ToTable("Prescriptions");
                 });
@@ -158,32 +152,75 @@ namespace CodeFirst.Migrations
                     b.Property<int>("Dose")
                         .HasColumnType("int");
 
-                    b.Property<int>("MedicamentIdMedicament")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrescriptionIdPrescription")
-                        .HasColumnType("int");
-
                     b.HasKey("IdMedicament", "IdPrescription");
 
-                    b.HasIndex("MedicamentIdMedicament");
-
-                    b.HasIndex("PrescriptionIdPrescription");
+                    b.HasIndex("IdPrescription");
 
                     b.ToTable("PrescriptionMedicaments");
+                });
+
+            modelBuilder.Entity("CodeFirst.Model.Role", b =>
+                {
+                    b.Property<int>("IdRole")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRole"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdRole");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("CodeFirst.Model.User", b =>
+                {
+                    b.Property<int>("IdUser")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUser"));
+
+                    b.Property<int>("IdRole")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUser");
+
+                    b.HasIndex("IdRole");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CodeFirst.Model.Prescription", b =>
                 {
                     b.HasOne("CodeFirst.Model.Doctor", "Doctor")
                         .WithMany()
-                        .HasForeignKey("DoctorIdDoctor")
+                        .HasForeignKey("IdDoctor")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CodeFirst.Model.Patient", "Patient")
                         .WithMany()
-                        .HasForeignKey("PatientIdPatient")
+                        .HasForeignKey("IdPatient")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -196,19 +233,30 @@ namespace CodeFirst.Migrations
                 {
                     b.HasOne("CodeFirst.Model.Medicament", "Medicament")
                         .WithMany()
-                        .HasForeignKey("MedicamentIdMedicament")
+                        .HasForeignKey("IdMedicament")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CodeFirst.Model.Prescription", "Prescription")
                         .WithMany()
-                        .HasForeignKey("PrescriptionIdPrescription")
+                        .HasForeignKey("IdPrescription")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Medicament");
 
                     b.Navigation("Prescription");
+                });
+
+            modelBuilder.Entity("CodeFirst.Model.User", b =>
+                {
+                    b.HasOne("CodeFirst.Model.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

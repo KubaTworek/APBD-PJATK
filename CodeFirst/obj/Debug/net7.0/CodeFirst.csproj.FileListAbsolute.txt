@@ -8,6 +8,7 @@ C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\CodeFirst.pdb
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Humanizer.dll
+C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\kubat\source\repos\APBD-PJATK\CodeFirst\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll

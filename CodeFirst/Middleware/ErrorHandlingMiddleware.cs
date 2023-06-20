@@ -20,6 +20,11 @@
                 context.Response.StatusCode = 400;
                 await context.Response.WriteAsync(ex.Message);
             }
+            catch (UnauthorizedException ex)
+            {
+                context.Response.StatusCode = 401;
+                await context.Response.WriteAsync(ex.Message);
+            }
             catch
             {
                 context.Response.StatusCode = 500;

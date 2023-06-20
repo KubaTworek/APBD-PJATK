@@ -30,7 +30,7 @@ namespace CodeFirst.Service
 
         public async Task<DoctorResponse> FindDoctorById(int idDoctor)
         {
-            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor) 
+            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor)
                 ?? throw new NotFoundException($"Doctor with ID {idDoctor} does not exist.");
 
             var doctorResponse = new DoctorResponse
@@ -69,7 +69,7 @@ namespace CodeFirst.Service
 
         public async Task<DoctorResponse> UpdateDoctorById(DoctorRequest request, int idDoctor)
         {
-            var existingDoctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor) 
+            var existingDoctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor)
                 ?? throw new NotFoundException($"Doctor with ID {idDoctor} does not exist.");
 
             existingDoctor.FirstName = request.FirstName;
@@ -91,7 +91,7 @@ namespace CodeFirst.Service
 
         public async Task<int> DeleteDoctorById(int idDoctor)
         {
-            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor) 
+            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.IdDoctor == idDoctor)
                 ?? throw new NotFoundException($"Doctor with ID {idDoctor} does not exist.");
 
             _context.Doctors.Remove(doctor);

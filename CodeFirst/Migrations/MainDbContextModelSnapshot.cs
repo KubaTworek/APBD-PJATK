@@ -156,6 +156,57 @@ namespace CodeFirst.Migrations
                     b.ToTable("PrescriptionMedicaments");
                 });
 
+            modelBuilder.Entity("CodeFirst.Model.Role", b =>
+                {
+                    b.Property<int>("IdRole")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRole"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdRole");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("CodeFirst.Model.User", b =>
+                {
+                    b.Property<int>("IdUser")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUser"));
+
+                    b.Property<int>("IdRole")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUser");
+
+                    b.HasIndex("IdRole");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("CodeFirst.Model.Prescription", b =>
                 {
                     b.HasOne("CodeFirst.Model.Doctor", "Doctor")
@@ -192,6 +243,17 @@ namespace CodeFirst.Migrations
                     b.Navigation("Medicament");
 
                     b.Navigation("Prescription");
+                });
+
+            modelBuilder.Entity("CodeFirst.Model.User", b =>
+                {
+                    b.HasOne("CodeFirst.Model.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

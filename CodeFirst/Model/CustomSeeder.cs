@@ -13,7 +13,7 @@
         {
             if (_context.Database.CanConnect())
             {
-                if(!_context.Patients.Any()) 
+                if (!_context.Patients.Any())
                 {
                     var patients = GetPatients();
                     _context.Patients.AddRange(patients);
@@ -43,7 +43,24 @@
                     _context.PrescriptionMedicaments.AddRange(prescriptionMedicaments);
                     _context.SaveChanges();
                 }
+                if (!_context.Roles.Any())
+                {
+                    var roles = GetRoles();
+                    _context.Roles.AddRange(roles);
+                    _context.SaveChanges();
+                }
             }
+        }
+
+        private List<Role> GetRoles()
+        {
+            var roles = new List<Role>
+        {
+            new Role { Name = "Admin" },
+            new Role { Name = "User" },
+        };
+
+            return roles;
         }
 
         private List<Patient> GetPatients()

@@ -2,7 +2,6 @@
 using CodeFirst.Middleware;
 using CodeFirst.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace CodeFirst.Service
 {

@@ -9,6 +9,8 @@ namespace CodeFirst.Model
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<PrescriptionMedicament> PrescriptionMedicaments { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected MainDbContext()
         {
